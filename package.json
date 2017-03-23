@@ -9,6 +9,10 @@
   "keywords": [
     "poetry"
   ],
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/blancazhq/Chinese_poem_hunter"
+  },
   "author": "Huiqi Zhou",
   "license": "ISC",
   "dependencies": {
