@@ -1,6 +1,6 @@
 {
   "name": "chinesepoemhunter",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "for finding chinese poems by topic",
   "main": "index.js",
   "scripts": {
