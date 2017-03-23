@@ -21,12 +21,12 @@ function findArt(stuff, callback){
   })
 }
 
-function findMaxLength(art, callback){
+function findMaxLength(art, new_text, callback){
   var art_lines = art.split("\n");
   var art_lines_length = art_lines.map(function(n){
     return n.length;
   })
-  var poem_lines = results[number].split("\n");
+  var poem_lines = new_text.split("\n");
   var poem_lines_length = poem_lines.map(function(n){
     return n.length;
   })
@@ -48,8 +48,8 @@ function rightFrameArt(art, maxlength, callback){
   callback(null, art_framed);
 }
 
-function rightFramePoem(poem, maxlength, callback){
-  var poem_lines = results[number].split("\n");
+function rightFramePoem(poem, new_textmaxlength, callback){
+  var poem_lines = poem.split("\n");
   for(var i=0;i<poem_lines.length;i++){
     poem_lines[i] = poem_lines[i]+" ".repeat(max_line_length-poem_lines[i].length+5)+"*";
   }
@@ -72,26 +72,20 @@ function chinesepoemhunter(stuff1, stuff2, callback){
     }
     $ = cheerio.load(html);
     $("p").each(function(i, elem){
-      if($(this).text().includes(stuff1)){
-        new_text = $(this).text().replace(/,/g, ",\n")
-        new_text = new_text.replace(/\.\.\.\./g, "\.\n")
-        new_text = new_text.replace(/\./g, "\.\n")
-        new_text = new_text.replace(/!/g, "!\n")
-        new_text = new_text.replace(/;/g, ";\n")
-        new_text = new_text.replace(/:/g, ";\n")
-        new_text = new_text.replace(/\?/g, "?\n")
-        new_text = new_text.replace(/--/g, "--\n")
-        new_text = new_text.replace(/\n/g, "\n*  ")
-        var result = "*  "+$(this).prev().text()+"\n*  "+$(this).prev().prev().text()+"\n*  \n*  "+new_text+"\n*";
+      if($(this).html().includes(stuff1)){
+        var result = "*  "+$(this).prev().html()+"\n*  "+$(this).prev().prev().html()+"\n*  \n*  "+$(this).html()+"\n*";
         results.push(result);
       }
     })
     generateNumber();
+    var new_text = results[number];
+    new_text = new_text.replace(/\<br\>/g, "\n*  ")
+
     findArt(stuff1, function(err, art){
       if(err){
         callback(err);
       }
-      findMaxLength(art, function(err){
+      findMaxLength(art, new_text, function(err){
         if(err){
           callback(err);
         }
@@ -99,7 +93,7 @@ function chinesepoemhunter(stuff1, stuff2, callback){
           if(err){
             callback(err);
           }
-          rightFramePoem(results[number], max_line_length, function(err){
+          rightFramePoem(new_text, max_line_length, function(err){
             if(err){
               callback(err);
             }
