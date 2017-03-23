@@ -25,6 +25,6 @@ chinesepoemhunter(stuff1, stuff2, function(err, result){
 
 ## Examples
 
-![tree](1.png?raw=true "tree")
-![temple](2.png?raw=true "temple")
-![love](3.png?raw=true "love")
+![tree](./1.png?raw=true "tree")
+![temple](./2.png?raw=true "temple")
+![love](./3.png?raw=true "love")
