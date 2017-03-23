@@ -22,3 +22,9 @@ chinesepoemhunter(stuff1, stuff2, function(err, result){
 * the "stuff" you can pass as a parameter can be one of these: "mountain", "sunset", "flower", "moon", "sun", "cloud", "desert", "thunder", "rainbow", "rain", "snow", "waterfall", "tree", "love", "home", "temple"
 
 * if you only want to put in one category, you can pass an empty string ("") as the second parameter
+
+## Examples
+
+![tree](1.png?raw=true "tree")
+![temple](2.png?raw=true "temple")
+![love](3.png?raw=true "love")

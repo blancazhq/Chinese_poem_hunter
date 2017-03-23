@@ -1,9 +1,16 @@
 var chinesepoemhunter = require("./index")
 
-var stuff1 = "temple";
-var stuff2 = "";
+chinesepoemhunter("flower", "", function(err, result){
+  if(err)throw err;
+  console.log(result);
+})
 
-chinesepoemhunter("temple", "", function(err, result){
+chinesepoemhunter("tree", "", function(err, result){
+  if(err)throw err;
+  console.log(result);
+})
+
+chinesepoemhunter("home", "", function(err, result){
   if(err)throw err;
   console.log(result);
 })

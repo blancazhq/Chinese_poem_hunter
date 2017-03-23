@@ -100,6 +100,7 @@ function chinesepoemhunter(stuff1, stuff2, callback){
             var frame_up_down = "*".repeat(max_line_length+6);
             var full_line_space = " ".repeat(max_line_length+4);
             var art_work = "\n"+frame_up_down+"\n*"+full_line_space+"*\n*"+full_line_space+"*\n*"+art_framed+"\n*"+full_line_space+"*\n*"+full_line_space+"*\n"+poem_framed+"\n*"+full_line_space+"*\n*"+full_line_space+"*\n"+frame_up_down;
+            result = [];
             callback(null, art_work);
           });
         });
