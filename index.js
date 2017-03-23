@@ -9,7 +9,7 @@ var art_name_array = ["mountain", "sunset", "flower", "moon", "sun", "cloud", "d
 var number;
 
 function findArt(stuff, callback){
-  fs.readFile("ascii.txt","utf8",function(err, data){
+  fs.readFile('./ascii.txt',"utf8",function(err, data){
     if(err){
       callback(err);
     }
@@ -86,7 +86,7 @@ function chinesepoemhunter(stuff1, stuff2, callback){
       }
     })
     generateNumber();
-    findArt(stuff1, function(err){
+    findArt(stuff1, function(err, art){
       if(err){
         callback(err);
       }
