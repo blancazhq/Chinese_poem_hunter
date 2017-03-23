@@ -1,0 +1,19 @@
+{
+  "name": "chinesepoemhunter",
+  "version": "2.0.0",
+  "description": "for finding chinese poems by topic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "poetry"
+  ],
+  "author": "Huiqi Zhou",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0"
+  }
+}
