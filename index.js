@@ -1,7 +1,8 @@
 var fs = require("fs");
 var request = require("request");
 var cheerio = require('cheerio');
-var _ = require("lodash")
+var _ = require("lodash");
+var path = require('path');
 var url = "http://www.shiren.org/xlib/lingshidao/hanshi/tang.htm"
 
 var results = [];
@@ -9,7 +10,7 @@ var art_name_array = ["mountain", "sunset", "flower", "moon", "sun", "cloud", "d
 var number;
 
 function findArt(stuff, callback){
-  fs.readFile('./ascii.txt',"utf8",function(err, data){
+  fs.readFile(path.join(__dirname, "ascii.txt"),"utf8",function(err, data){
     if(err){
       callback(err);
     }
